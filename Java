@@ -1,0 +1,35 @@
+// Utenti
+{
+  id: ObjectId,
+  username: String,
+  skills: [String],
+  xmr_address: String, // Indirizzo Monero per ricevere pagamenti
+  rating: Number,
+  profile: {
+    bio: String,
+    experience: String
+  }
+}
+
+// Servizi Offerti
+{
+  id: ObjectId,
+  provider_id: ObjectId, // Riferimento all'utente
+  title: String,
+  description: String,
+  price_xmr: Number, // Prezzo in XMR
+  category: String,
+  delivery_time: Number // in giorni
+}
+
+// Transazioni
+{
+  id: ObjectId,
+  service_id: ObjectId,
+  buyer_id: ObjectId,
+  seller_id: ObjectId,
+  amount_xmr: Number,
+  tx_hash: String, // Hash transazione Monero
+  status: String, // "pending", "paid", "completed", "disputed"
+  created_at: Date
+}
