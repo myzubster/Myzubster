@@ -1,0 +1,17 @@
+// userController.js
+const registerUser = async (req, res) => {
+  const { username, skills, bio } = req.body;
+  
+  // Crea indirizzo Monero per l'utente
+  const xmrAddress = await moneroService.createIntegratedAddress();
+  
+  const user = new User({
+    username,
+    skills,
+    profile: { bio },
+    xmr_address: xmrAddress
+  });
+  
+  await user.save();
+  res.json(user);
+};
