@@ -1,0 +1,16 @@
+// serviceController.js
+const createService = async (req, res) => {
+  const { title, description, price_xmr, category } = req.body;
+  const provider_id = req.user.id; // Da middleware di autenticazione
+  
+  const service = new Service({
+    provider_id,
+    title,
+    description,
+    price_xmr,
+    category
+  });
+  
+  await service.save();
+  res.json(service);
+};
