@@ -1,0 +1,21 @@
+// moneroService.js
+const Monero = require('monero-javascript');
+
+class MoneroPayment {
+  constructor() {
+    this.walletRPC = new Monero.WalletRpc("http://127.0.0.1:28088", "username", "password");
+  }
+
+  async createIntegratedAddress(userId) {
+    // Crea un indirizzo integrato per un utente
+    return await this.walletRPC.createIntegratedAddress();
+  }
+
+  async checkPayment(txHash, expectedAmount) {
+    // Verifica se un pagamento è stato ricevuto
+    const tx = await this.walletRPC.getTransferByHash(txHash);
+    return tx && tx.amount >= expectedAmount;
+  }
+}
+
+module.exports = new MoneroPayment();
