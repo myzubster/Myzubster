@@ -1,0 +1,40 @@
+// paymentController.js
+const initiatePayment = async (req, res) => {
+  const { service_id } = req.body;
+  const buyer_id = req.user.id;
+  
+  const service = await Service.findById(service_id);
+  const seller = await User.findById(service.provider_id);
+  
+  const transaction = new Transaction({
+    service_id,
+    buyer_id,
+    seller_id: seller._id,
+    amount_xmr: service.price_xmr,
+    status: "pending"
+  });
+  
+  await transaction.save();
+  
+  res.json({
+    xmr_address: seller.xmr_address,
+    amount: service.price_xmr,
+    transaction_id: transaction._id
+  });
+};
+
+const verifyPayment = async (req, res) => {
+  const { transaction_id, tx_hash } = req.body;
+  
+  const transaction = await Transaction.findById(transaction_id);
+  const isPaid = await moneroService.checkPayment(tx_hash, transaction.amount_xmr);
+  
+  if(isPaid) {
+    transaction.status = "paid";
+    transaction.tx_hash = tx_hash;
+    await transaction.save();
+    res.json({ status: "success" });
+  } else {
+    res.status(400).json({ error: "Payment not verified" });
+  }
+};
