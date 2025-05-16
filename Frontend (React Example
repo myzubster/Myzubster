@@ -1,0 +1,37 @@
+// ServiceListing.js
+function ServiceListing({ service }) {
+  const [isPaying, setIsPaying] = useState(false);
+  
+  const handlePayment = async () => {
+    setIsPaying(true);
+    const res = await axios.post('/api/payment/initiate', { service_id: service._id });
+    
+    // Mostra all'utente l'indirizzo e l'importo da pagare
+    showMoneroPaymentModal(res.data.xmr_address, res.data.amount);
+    
+    // Polling per verificare il pagamento
+    const checkPayment = setInterval(async () => {
+      const verification = await axios.post('/api/payment/verify', {
+        transaction_id: res.data.transaction_id,
+        tx_hash: getTxHashFromWallet() // Da implementare
+      });
+      
+      if(verification.data.status === "success") {
+        clearInterval(checkPayment);
+        setIsPaying(false);
+        alert("Pagamento confermato!");
+      }
+    }, 30000); // Controlla ogni 30 secondi
+  };
+  
+  return (
+    <div className="service-card">
+      <h3>{service.title}</h3>
+      <p>{service.description}</p>
+      <p>Prezzo: {service.price_xmr} XMR</p>
+      <button onClick={handlePayment} disabled={isPaying}>
+        {isPaying ? 'Processing...' : 'Paga con Monero'}
+      </button>
+    </div>
+  );
+}
