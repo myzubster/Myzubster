@@ -1,0 +1,27 @@
+const express = require('express');
+const cors = require('cors');
+const monerojs = require('monero-javascript');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Database temporaneo
+const usersDB = [];
+
+// API per registrazione
+app.post('/api/register', (req, res) => {
+  const { username, skills, xmrAddress } = req.body;
+  usersDB.push({ username, skills, xmrAddress });
+  res.status(201).json({ message: "User registered" });
+});
+
+// API per verificare pagamento
+app.post('/api/verify-payment', async (req, res) => {
+  const { xmrAddress, amount } = req.body;
+  // Implementa verifica pagamento con monero-javascript
+  res.json({ verified: false }); // Placeholder
+});
+
+const PORT = 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
