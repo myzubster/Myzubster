@@ -1,16 +1,21 @@
-## Hi there 👋
+# Ciao, sono Daniel Ioni 👋
 
-<!--
-**myzubster/Myzubster** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Founder & Product Builder di MyZubster, con attività full-stack sul prodotto.
 
-Here are some ideas to get you started:
+## Competenze
+- JavaScript e Node.js
+- API REST
+- MongoDB
+- GitHub e Vercel
+- Docker
+- PostHog
+- Integrazioni con servizi AI
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Progetti
+- MyZubster — sviluppo e test del prodotto, integrazioni GitHub e AI, Marketplace, analytics e flussi utente
+- Database-Schema
+
+## MyZubster
+MyZubster è un ecosistema open source in evoluzione, con percorsi dedicati a Marketplace, Seller, Metaverse, LIFE Pilot e Community.
+
+Sito: https://myzubster.com
