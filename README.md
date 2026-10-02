@@ -71,6 +71,6 @@ Schede pubblicate e dichiarate dal titolare; le competenze non sono automaticame
 
 - **[Sviluppo, coordinamento e sperimentazione dell'ecosistema MyZubster](https://www.myzubster.com/knowledge-card?id=6abf2260b38b3bb1b4971973)** — Open source, gestione di progetti digitali, collaborazione GitHub, intelligenza artificiale e sistemi di conoscenza
   - Attività dichiarate: Partecipo allo sviluppo e al coordinamento dell'ecosistema open source MyZubster. Le attività che intendo documentare comprendono l'organizzazione dei progetti digitali, la collaborazione attraverso GitHub, la sperimenta
-  - Stato verifica: Attività dichiarate dal titolare; eventuali commit e PR devono essere aggiunti e controllati prima di considerarli evidenze del lavoro.
+  - Stato verifica: Attività dichiarate dal titolare. Almeno una fonte GitHub pubblica è stata collegata e ne è stata controllata la disponibilità. Contenuto, attribuzione e competenze non sono verifi
   - Fonte GitHub: [GitHub commit 7309fdc0261e](https://github.com/myzubster/Myzubster/commit/7309fdc0261e7e00d92f577d15b46884290b6cb5) — Fonte pubblica accessibile su GitHub · autore GitHub: @myzubster · docs: update profile README with Zorgax. Non certific
 <!-- MYZUBSTER-KNOWLEDGE-CARDS:END -->
